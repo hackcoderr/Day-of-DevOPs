@@ -28,4 +28,7 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: login with github pachage regestry
         run: |
-          echo "${{ secrets.DOCKER_TOKEN }} 
+          echo "${{ secrets.DOCKER_TOKEN }}" | docker login -u hackcoderr --password-stdin
+          docker build . -t ghcr.io/hackcoderr/apache:0.0.2
+          docker push ghcr.io/hackcoderr/apache:0.0.2
+          
