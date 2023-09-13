@@ -1,9 +1,18 @@
 pipeline {
     agent any
+    
     stages {
-        stage('Hello') {
+        stage('Checkout') {
             steps {
-                echo 'Hello World'
+                checkout scm
+            }
+        }
+        
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    def dockerImage = docker.build('apache:latest', '-f /Dockerfile .')
+                }
             }
         }
     }
