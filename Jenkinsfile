@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         DOCKER_IMAGE = 'apache:v1.0.0'
-        DOCKERFILE_PATH = '/Dockerfile'
+        DOCKERFILE_PATH = 'Dockerfile'
     }
 
     stages {
